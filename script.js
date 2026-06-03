@@ -17,7 +17,7 @@ categoryButtons.forEach(button => {
 function renderRecentDreams() {
   if (!dreamsWrapper) return;
   dreamsWrapper.innerHTML = "";
-  
+
   let recentDreams = [...dreams].reverse().slice(0, 6);
 
   if (dreamCounter) {
@@ -31,23 +31,31 @@ function renderRecentDreams() {
 
   recentDreams.forEach(dream => {
     const cardHTML = `
-      <div class="dream-card">
-          <div class="card-top">
-              <span class="dream-tag tag-${dream.category.toLowerCase()}">${dream.category}</span>
-              <span class="dream-time">${dream.timeAgo}</span>
+        <div class="dream-card">
+      <div class="card-options-wrapper">
+          <button class="options-btn">⋮</button>
+          <div class="options-menu">
+              <button class="edit-opt">Edit</button>
+              <button class="delete-opt">Delete</button>
           </div>
-
-          <h3 class="dream-title">${dream.title}</h3>
-          <p class="dream-text">${dream.text}</p>
-          <div class="card-bottom">
-              <span class="dream-date">${dream.date}</span>
-              <a href="#" class="read-more">Read more →</a>
-          </div>
-
       </div>
+
+      <div class="card-top">
+          <span class="dream-tag tag-${dream.category.toLowerCase()}">${dream.category}</span>
+          </div>
+      
+      <h3 class="dream-title">${dream.title}</h3>
+      <p class="dream-text">${dream.text}</p>
+      
+      <div class="card-bottom">
+          <span class="dream-date">${dream.date}</span>
+      </div>
+  </div>
     `;
     dreamsWrapper.innerHTML += cardHTML;
   });
+
+  menuEvents();
 }
 
 analyzeBtn.addEventListener('click', () => {
@@ -62,7 +70,6 @@ analyzeBtn.addEventListener('click', () => {
   const newDream = {
     id: Date.now(),
     category: selectedCategory,
-    timeAgo: "Just now",
     title: dreamTitle,
     text: dreamText,
     date: today
@@ -71,8 +78,43 @@ analyzeBtn.addEventListener('click', () => {
   dreams.push(newDream);
   localStorage.setItem('dreams', JSON.stringify(dreams));
   textarea.value = "";
-  
+
   renderRecentDreams();
 });
 
 renderRecentDreams();
+
+
+
+
+function menuEvents() {
+  const optionButtons = document.querySelectorAll('.options-btn');
+
+  optionButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+
+      const currentMenu = button.nextElementSibling;
+
+      document.querySelectorAll('.options-menu').forEach(menu => {
+        if (menu !== currentMenu) {
+          menu.classList.remove('show');
+        }
+      });
+
+      currentMenu.classList.toggle('show');
+    });
+  });
+}
+
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.options-menu').forEach(menu => {
+    menu.classList.remove('show');
+  });
+});
+
+
+
+
+
