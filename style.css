@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
+*{
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+}
+
 body {
   background: radial-gradient(circle at 50% 30%, #2e1065 0%, #0c0a09 70%);
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
-*{
-  margin: 0;
 }
 
 img {
@@ -14,7 +18,7 @@ img {
 }
 
 .logo-text{
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", serif !important;
 }
 
 header {
@@ -40,6 +44,7 @@ header {
   font-size: 16px;
   cursor: pointer;
   margin-right: 200px;
+  color: #a2a1a8;
 }
 
 .intro {
@@ -58,7 +63,7 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50px;
   color: #c084fc; 
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 2px;
   padding: 6px 16px;
@@ -66,14 +71,22 @@ header {
 }
 
 .intro h1{
-  font-family: "Playfair Display", serif;
-  font-size: 100px;
-  width: 700px;
+    width: 800px;
+}
+
+.intro h1 span{
+  font-family: "Playfair Display", serif !important;
+  font-size: 120px;
   font-weight: 400;
 }
 
+.dream-highlight{
+  color: #d8b4fe;
+  font-style: italic;
+}
+
 .intro h2{
-  font-size: 18px;
+  font-size: 20px;
   color: #94a3b8;
   margin-top: 30px;
 }
@@ -91,8 +104,15 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 6px 16px;
   color: #a2a1a8; 
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
+}
+
+.categories div.active {
+  background-color: #c084fc; 
+  border-color: #c084fc;
+  color: #0c0a09; 
+  font-weight: 500;
 }
 
 .textarea-container {
@@ -118,7 +138,7 @@ header {
   height: 200px;
   outline: none;
   font-family: sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   padding: 0;
 }
 
@@ -140,3 +160,154 @@ header {
   border-color: rgba(192, 132, 252, 0.4);
 }
 
+.card-author{
+  color: white;
+}
+
+.card-title{
+  color: white;
+}
+
+
+
+
+.recent-dreams-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+  color: white;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.dream-count {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.dreams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.dream-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: all 0.3s ease;
+}
+
+.dream-card:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(192, 132, 252, 0.2);
+  transform: translateY(-4px);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.dream-tag {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.tag-lucid { background-color: rgba(192, 132, 252, 0.15); color: #c084fc; }
+.tag-nightmare { background-color: rgba(239, 68, 68, 0.15); color: #f87171; }
+.tag-sweet { background-color: rgba(244, 114, 182, 0.15); color: #f472b6; }
+.tag-surreal { background-color: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+
+.dream-time {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.dream-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.dream-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 250px; 
+  box-sizing: border-box;
+}
+
+.dream-text {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  height: 90px;        
+  overflow: hidden;   
+  word-break: break-all; 
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font-size: 13px;
+}
+
+.dream-date {
+  color: #64748b;
+}
+
+.read-more {
+  color: #c084fc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.read-more:hover {
+  color: #e9d5ff;
+}
+
+.no-dreams {
+  color: #64748b;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.archive-link {
+  color: #a2a1a8;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.archive-link:hover {
+  color: #c084fc;
+}
