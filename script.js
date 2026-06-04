@@ -32,7 +32,7 @@ function renderRecentDreams() {
 
   recentDreams.forEach(dream => {
     const cardHTML = `
-        <div class="dream-card">
+        <div class="dream-card" data-id="${dream.id}">          
           <div class="card-options-wrapper">
           <button class="options-btn">⋮</button>
           <div class="options-menu">
@@ -59,8 +59,8 @@ function renderRecentDreams() {
   menuEvents();
 }
 
-const part1 = "AQ.Ab8RN6InJF6Uaif83K";
-const part2 = "PR9KzRCDqwcCPs_Bweo0D43EMuhElqmg";
+let part1 = "AQ.Ab8RN6JqPI4nDXJRrZMN"
+let part2 = "-j149qWWXnscq5XB2EuOQpsnkc5Q8w"
 const API_KEY = part1 + part2;
 
 analyzeBtn.addEventListener('click', () => {
@@ -98,7 +98,7 @@ analyzeBtn.addEventListener('click', () => {
       const analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "No analysis available.";
 
       document.querySelector(".ai-result").innerText = analysis;
-      
+
       currentAIAnalysis = analysis;
 
       // Düyməni əvvəlki halına qaytarırıq
@@ -115,17 +115,17 @@ analyzeBtn.addEventListener('click', () => {
 let addBtn = document.querySelector('.add-button');
 
 addBtn.addEventListener('click', () => {
-    const dreamText = textarea.value.trim(); 
+  const dreamText = textarea.value.trim();
 
-    if (!dreamText) {
-        alert("Please write something to add!");
-        return;
-    }
+  if (!dreamText) {
+    alert("Please write something to add!");
+    return;
+  }
   const activeCategoryBtn = document.querySelector('.categories div.active');
   const selectedCategory = activeCategoryBtn ? activeCategoryBtn.innerText : "Lucid";
 
   const dreamTitle = dreamText.split(" ").slice(0, 4).join(" ") + "...";
-  
+
   const today = new Date().toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -137,7 +137,7 @@ addBtn.addEventListener('click', () => {
     category: selectedCategory,
     title: dreamTitle,
     text: dreamText,
-    analysis: currentAIAnalysis || "Not analyzed yet.", 
+    analysis: currentAIAnalysis || "Not analyzed yet.",
     date: today
   };
 
@@ -146,7 +146,7 @@ addBtn.addEventListener('click', () => {
 
   textarea.value = "";
   document.querySelector(".ai-result").innerText = "";
-  currentAIAnalysis = ""; 
+  currentAIAnalysis = "";
 
   renderRecentDreams();
 });
@@ -158,22 +158,95 @@ function menuEvents() {
   optionButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       e.stopPropagation();
-
       const currentMenu = button.nextElementSibling;
-
       document.querySelectorAll('.options-menu').forEach(menu => {
-        if (menu !== currentMenu) {
-          menu.classList.remove('show');
-        }
+        if (menu !== currentMenu) menu.classList.remove('show');
       });
-
-      if (currentMenu.classList.contains('show')) {
-        currentMenu.classList.remove('show');
-      } else {
-        currentMenu.classList.add('show');
-      }
+      currentMenu.classList.toggle('show');
     });
   });
+
+  // DELETE
+  document.querySelectorAll('.delete-opt').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.dream-card');
+      const dreamId = Number(card.dataset.id);
+      dreams = dreams.filter(d => d.id !== dreamId);
+      localStorage.setItem('dreams', JSON.stringify(dreams));
+      renderRecentDreams();
+    });
+  });
+
+  // EDIT
+  document.querySelectorAll('.edit-opt').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.dream-card');
+      const dreamId = Number(card.dataset.id);
+      const dream = dreams.find(d => d.id === dreamId);
+      if (!dream) return;
+
+      textarea.value = dream.text;
+      currentAIAnalysis = dream.analysis;
+      document.querySelector('.ai-result').innerText = dream.analysis;
+
+      // Kateqoriyanı seç
+      categoryButtons.forEach(b => {
+        b.classList.remove('active');
+        if (b.innerText === dream.category) b.classList.add('active');
+      });
+
+      // Köhnəni sil, yuxarı scroll et
+      dreams = dreams.filter(d => d.id !== dreamId);
+      localStorage.setItem('dreams', JSON.stringify(dreams));
+      renderRecentDreams();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      btn.closest('.options-menu').classList.remove('show');
+    });
+  });
+
+  // CARD KLİK → POPUP
+  document.querySelectorAll('.dream-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-options-wrapper')) return;
+      const dreamId = Number(card.dataset.id);
+      const dream = dreams.find(d => d.id === dreamId);
+      if (!dream) return;
+      openPopup(dream);
+    });
+  });
+}
+
+function openPopup(dream) {
+  const existing = document.getElementById('dream-popup');
+  if (existing) existing.remove();
+
+  const popup = document.createElement('div');
+  popup.id = 'dream-popup';
+  popup.innerHTML = `
+    <div class="popup-overlay">
+      <div class="popup-box">
+        <button class="popup-close">✕</button>
+        <div class="popup-tag tag-${dream.category.toLowerCase()}">${dream.category}</div>
+        <h2 class="popup-title">${dream.title}</h2>
+        <p class="popup-date">${dream.date}</p>
+        <div class="popup-divider"></div>
+        <p class="popup-text">${dream.text}</p>
+        <div class="popup-analysis-label">✦ AI Analysis</div>
+        <p class="popup-analysis">${dream.analysis}</p>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+
+  popup.querySelector('.popup-overlay').addEventListener('click', (e) => {
+    if (e.target.classList.contains('popup-overlay')) popup.remove();
+  });
+
+  popup.querySelector('.popup-close').addEventListener('click', () => popup.remove());
 }
 
 
@@ -184,6 +257,9 @@ document.addEventListener('click', () => {
 });
 
 renderRecentDreams();
+
+
+
 
 
 

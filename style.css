@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 
-*{
+* {
   margin: 0;
   font-family: "DM Sans", sans-serif;
   box-sizing: border-box;
@@ -18,8 +18,13 @@ img {
   width: 50px;
 }
 
-.logo-text{
+.logo-text {
   font-family: "Playfair Display", serif !important;
+  font-size: 20px;
+}
+
+.navbar a{
+  font-size: 20px;
 }
 
 header {
@@ -29,21 +34,23 @@ header {
 
 .header-container {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 30px;
 }
 
 .logo-area {
   display: flex;
   align-items: center;
-  margin-left: 200px;
+  margin-left: 40px;
   gap: 10px;
 }
+
 
 .navbar {
   font-size: 20px;
   cursor: pointer;
-  margin-right: 200px;
+  margin-right: 40px;
   color: #a2a1a8;
 }
 
@@ -51,10 +58,10 @@ header {
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center;    
-  text-align: center;      
-  padding: 80px 20px; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
 
 }
 
@@ -62,7 +69,7 @@ header {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50px;
-  color: #c084fc; 
+  color: #c084fc;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -70,48 +77,49 @@ header {
   margin-bottom: 25px;
 }
 
-.intro h1{
-    width: 800px;
+.intro h1 {
+  width: 90%;
+  max-width: 900px;
 }
 
-.intro h1 span{
+.intro h1 span {
   font-family: "Playfair Display", serif !important;
-  font-size: 120px;
+  font-size: 150px;
   font-weight: 400;
 }
 
-.dream-highlight{
+.dream-highlight {
   color: #d8b4fe;
   font-style: italic;
 }
 
-.intro h2{
-  font-size: 20px;
+.intro h2 {
+  font-size: 22px;
   color: #94a3b8;
   margin-top: 30px;
 }
 
-.categories{
+.categories {
   color: white;
   display: flex;
   gap: 15px;
   justify-content: center;
 }
 
-.categories div{
+.categories div {
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 6px 16px;
-  color: #a2a1a8; 
+  color: #a2a1a8;
   font-size: 16px;
   cursor: pointer;
 }
 
 .categories div.active {
-  background-color: #c084fc; 
+  background-color: #c084fc;
   border-color: #c084fc;
-  color: #0c0a09; 
+  color: #0c0a09;
   font-weight: 500;
 }
 
@@ -121,7 +129,8 @@ header {
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  width: 650px;
+  width: 90%;
+  max-width: 650px;
   min-height: 180px;
   padding: 20px;
   border-radius: 16px;
@@ -160,7 +169,7 @@ header {
   border-color: rgba(192, 132, 252, 0.4);
 }
 
-.add-button{
+.add-button {
   width: 40px;
   border-radius: 50%;
   text-align: center;
@@ -176,17 +185,17 @@ header {
   border-color: rgba(192, 132, 252, 0.4);
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: end;
   gap: 10px;
 }
 
-.card-author{
+.card-author {
   color: white;
 }
 
-.card-title{
+.card-title {
   color: white;
 }
 
@@ -217,7 +226,7 @@ header {
 
 .dreams-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));   
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 25px;
 }
 
@@ -253,10 +262,25 @@ header {
   font-weight: 500;
 }
 
-.tag-lucid { background-color: rgba(192, 132, 252, 0.15); color: #c084fc; }
-.tag-nightmare { background-color: rgba(239, 68, 68, 0.15); color: #f87171; }
-.tag-sweet { background-color: rgba(244, 114, 182, 0.15); color: #f472b6; }
-.tag-surreal { background-color: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.tag-lucid {
+  background-color: rgba(192, 132, 252, 0.15);
+  color: #c084fc;
+}
+
+.tag-nightmare {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.tag-sweet {
+  background-color: rgba(244, 114, 182, 0.15);
+  color: #f472b6;
+}
+
+.tag-surreal {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
 
 .dream-time {
   font-size: 12px;
@@ -268,7 +292,7 @@ header {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 10px;
-  
+
 }
 
 .dream-card {
@@ -278,7 +302,7 @@ header {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  height: 250px; 
+  height: 250px;
   box-sizing: border-box;
 }
 
@@ -287,9 +311,9 @@ header {
   color: #94a3b8;
   line-height: 1.5;
   margin-bottom: 15px;
-  height: 90px;        
-  overflow: hidden;   
-  word-break: break-all; 
+  height: 90px;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .card-bottom {
@@ -350,7 +374,7 @@ header {
   position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 20; 
+  z-index: 20;
 }
 
 .options-btn {
@@ -369,11 +393,11 @@ header {
 
 
 .options-menu {
-  display: none; 
+  display: none;
   position: absolute;
   right: 0;
   top: 30px;
-  background-color: #1a1625; 
+  background-color: #1a1625;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   width: 100px;
@@ -404,17 +428,19 @@ header {
 .options-menu .delete-opt {
   color: #f87171;
 }
+
 .options-menu .delete-opt:hover {
   background-color: rgba(248, 113, 113, 0.1);
 }
 
 
 
-.ai-result{
+.ai-result {
   color: white;
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  width: 600px;
+  width: 90%;
+  max-width: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -439,9 +465,108 @@ header {
   cursor: pointer;
   font-size: 14px;
 }
+
 .arch-cat.active {
   background-color: #c084fc;
   color: #0c0a12;
   border-color: #c084fc;
   box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
+}
+
+
+
+
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.popup-box {
+  background: #120a2e;
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #a2a1a8;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.popup-close:hover {
+  color: white;
+  background: rgba(255,255,255,0.1);
+}
+
+.popup-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.popup-title {
+  font-family: "Playfair Display", serif;
+  color: white;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.popup-date {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.popup-divider {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 20px;
+}
+
+.popup-text {
+  color: #cbd5e1;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.popup-analysis-label {
+  color: #c084fc;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.popup-analysis {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+  background: rgba(192,132,252,0.05);
+  border: 1px solid rgba(192,132,252,0.1);
+  border-radius: 12px;
+  padding: 16px;
 }
