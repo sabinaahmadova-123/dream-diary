@@ -5,6 +5,7 @@
 *{
   margin: 0;
   font-family: "DM Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -36,10 +37,11 @@ header {
   display: flex;
   align-items: center;
   margin-left: 200px;
+  gap: 10px;
 }
 
 .navbar {
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   margin-right: 200px;
   color: #a2a1a8;
@@ -158,6 +160,28 @@ header {
   border-color: rgba(192, 132, 252, 0.4);
 }
 
+.add-button{
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #a2a1a8;
+  font-size: 20px;
+}
+
+.add-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: rgba(192, 132, 252, 0.4);
+}
+
+.buttons{
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
 .card-author{
   color: white;
 }
@@ -244,6 +268,7 @@ header {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 10px;
+  
 }
 
 .dream-card {
@@ -381,4 +406,42 @@ header {
 }
 .options-menu .delete-opt:hover {
   background-color: rgba(248, 113, 113, 0.1);
+}
+
+
+
+.ai-result{
+  color: white;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 20px auto;
+}
+
+.archive-categories {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.arch-cat {
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: #a78bfa;
+  cursor: pointer;
+  font-size: 14px;
+}
+.arch-cat.active {
+  background-color: #c084fc;
+  color: #0c0a12;
+  border-color: #c084fc;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
 }

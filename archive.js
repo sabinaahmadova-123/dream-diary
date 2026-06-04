@@ -1,36 +1,30 @@
 let dreams = JSON.parse(localStorage.getItem('dreams')) || [];
+let archiveWrapper = document.getElementById('archive-wrapper');
+let categoryButtons = document.querySelectorAll('.arch-cat');
 
-const archiveWrapper = document.getElementById('archive-wrapper');
-const archiveCounter = document.getElementById('archive-counter');
-
-function renderAllDreams() {
+function renderArchiveDreams(selectedCategory = "All") {
   if (!archiveWrapper) return;
   archiveWrapper.innerHTML = "";
 
-  if (archiveCounter) {
-    archiveCounter.innerText = `${dreams.length} entries in your diary`;
-  }
+  let filteredDreams = selectedCategory === "All" 
+    ? dreams 
+    : dreams.filter(dream => dream.category.toLowerCase() === selectedCategory.toLowerCase());
 
-  if (dreams.length === 0) {
-    archiveWrapper.innerHTML = `<p class="no-dreams">No archived dreams found.</p>`;
+  if (filteredDreams.length === 0) {
+    archiveWrapper.innerHTML = `<p class="no-dreams">No dreams found in this category.</p>`;
     return;
   }
 
-  let allDreams = [...dreams].reverse();
-
-  allDreams.forEach(dream => {
+  [...filteredDreams].reverse().forEach(dream => {
     const cardHTML = `
-      <div class="dream-card">
+      <div class="dream-card" onclick="window.location.href='edit.html?id=${dream.id}'">
           <div class="card-top">
               <span class="dream-tag tag-${dream.category.toLowerCase()}">${dream.category}</span>
-              <span class="dream-time">${dream.timeAgo}</span>
           </div>
-          
-          <h3 class="dream-title">${dream.title}</h3>
+          <h3 class="dream-title">${dream.title || 'Untitled Dream'}</h3>
           <p class="dream-text">${dream.text}</p>
           <div class="card-bottom">
               <span class="dream-date">${dream.date}</span>
-              <a href="#" class="read-more">Read more →</a>
           </div>
       </div>
     `;
@@ -38,4 +32,14 @@ function renderAllDreams() {
   });
 }
 
-renderAllDreams();
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    categoryButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const category = button.getAttribute('data-category');
+    renderArchiveDreams(category);
+  });
+});
+
+renderArchiveDreams("All");

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somnia - Archive</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="header-container">
             <div class="logo-area">
-                <img src="images/logo.jpg" alt="logo">
+                <img src="images/image.png" alt="logo">
                 <span class="logo-text">Somnia</span>
             </div>
             <div class="navbar">
@@ -25,10 +27,21 @@
                 <h2>All Archived Dreams</h2>
                 <span class="dream-count" id="archive-counter">0 entries in your diary</span>
             </div>
-            <div class="dreams-grid" id="archive-wrapper"></div>
+
+            <div class="archive-categories">
+                <div class="arch-cat active" data-category="All">All</div>
+                <div class="arch-cat" data-category="Lucid">Lucid</div>
+                <div class="arch-cat" data-category="Nightmare">Nightmare</div>
+                <div class="arch-cat" data-category="Sweet">Sweet</div>
+                <div class="arch-cat" data-category="Prophetic">Prophetic</div>
+                <div class="arch-cat" data-category="Surreal">Surreal</div>
+            </div>
+
+            <div id="archive-wrapper"></div>
         </section>
     </main>
 
     <script src="archive.js"></script>
 </body>
+
 </html>
