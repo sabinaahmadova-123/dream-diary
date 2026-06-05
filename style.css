@@ -12,31 +12,31 @@
 
 
 html {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    overscroll-behavior-y: none !important; 
-    overscroll-behavior: none !important;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior-y: none !important;
+  overscroll-behavior: none !important;
 }
 
 body {
-    width: 100%;
-    max-width: 100%;
-    min-height: 100vh;
-    position: relative;
-    
-    background: radial-gradient(circle at 50% 30%, #2e1065 0%, #0c0a09 70%) !important;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-    margin: 0;
-    padding: 0;
-    
-    overscroll-behavior-y: none !important;
-    overscroll-behavior: none !important;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at 50% 30%, #2e1065 0%, #0c0a09 70%) !important;
+  background-attachment: fixed !important;
+  background-color: #0c0a09 !important;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  overscroll-behavior-y: none !important;
+  overscroll-behavior: none !important;
 }
 
 img {
@@ -48,7 +48,7 @@ img {
   font-size: 20px;
 }
 
-.navbar a{
+.navbar a {
   font-size: 20px;
 }
 
@@ -58,29 +58,29 @@ header {
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px; 
-    width: 100%;
-    margin: 0 auto; 
-    padding: 20px; 
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .logo-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .navbar {
-    font-size: 20px;
-    cursor: pointer;
-    color: #a2a1a8;
-    display: flex;
-    gap: 25px; 
-    align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  color: #a2a1a8;
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
 .intro {
@@ -111,11 +111,11 @@ header {
   max-width: 900px;
 }
 
- .intro h1 span {
-    font-family: "Playfair Display", serif !important;
-    font-size: 150px;
-    font-weight: 400;
-  }
+.intro h1 span {
+  font-family: "Playfair Display", serif !important;
+  font-size: 150px;
+  font-weight: 400;
+}
 
 .dream-highlight {
   color: #d8b4fe;
@@ -256,7 +256,7 @@ header {
 
 .dreams-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 
@@ -534,8 +534,8 @@ header {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #a2a1a8;
   border-radius: 50%;
   width: 32px;
@@ -546,7 +546,7 @@ header {
 
 .popup-close:hover {
   color: white;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .popup-tag {
@@ -573,7 +573,7 @@ header {
 }
 
 .popup-divider {
-  border-top: 1px solid rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   margin-bottom: 20px;
 }
 
@@ -595,8 +595,8 @@ header {
   color: #94a3b8;
   font-size: 14px;
   line-height: 1.7;
-  background: rgba(192,132,252,0.05);
-  border: 1px solid rgba(192,132,252,0.1);
+  background: rgba(192, 132, 252, 0.05);
+  border: 1px solid rgba(192, 132, 252, 0.1);
   border-radius: 12px;
   padding: 16px;
 }
@@ -606,155 +606,147 @@ header {
 
 
 .about-page {
-    background-color: #0c0a09;
-    color: #94a3b8;
-    margin: 0;
+  background-color: #0c0a09;
+  color: #94a3b8;
+  margin: 0;
 }
 
 .about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    justify-content: center;
-    gap: 40px;
-    margin: 50px auto;        
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 50px auto;
+  width: 100%;
 }
 
 .about-img {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
 }
 
 .about-img img {
-    width: 1000px;
-    height: auto;
-    display: block;
-    border-radius: 0;
+  width: 1000px;
+  height: auto;
+  display: block;
+  border-radius: 0;
 }
 
 .about-content {
-    max-width: 800px;     
-    width: 100%;
+  max-width: 800px;
+  width: 100%;
 }
 
 .about-content p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #94a3b8;
-    margin: 0;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #94a3b8;
+  margin: 0;
 }
 
 .about-content strong {
-    color: #e9d5ff;
-    display: block;
-    margin-top: 15px;
-    font-size: 18px;
+  color: #e9d5ff;
+  display: block;
+  margin-top: 15px;
+  font-size: 18px;
 }
 
 
 
 .navbar {
-    display: flex;
-    gap: 25px; 
-    align-items: center;
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
 .archive-link {
-    color: #94a3b8; 
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.2s ease;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.archive-link:hover, 
+.archive-link:hover,
 .archive-link.active {
-    color: #ffffff; 
+  color: #ffffff;
 }
 
 
 footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.05); 
-    padding: 30px 0;
-    margin-top: 60px; 
-    width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 30px 0;
+  margin-top: 60px;
+  width: 100%;
 }
 
 .footer-container {
-    max-width: 1200px; 
-    margin: 0 auto;
-    display: flex;
-    justify-content: center; 
-    padding: 0 20px;
-    box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .footer-container p {
-    color: #4b5563; 
-    font-size: 14px;
-    margin: 0;
-    letter-spacing: 0.5px;
+  color: #4b5563;
+  font-size: 14px;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 
 
 
-/* ==========================================================================
-   MEDIA QUERIES (RESPONSIVE DIZAYN)
-   ========================================================================== */
 
-/* 💻 KOMPÜTER VƏ BÖYÜK EKRANLAR (991px - 2000px) */
 @media screen and (min-width: 991px) and (max-width: 2000px) {
-  /* Kompüterdə dizayn onsuz da əla oturub, sadəcə zəmanət üçün əsas ölçüləri qoruyuruq */
-  .header-container, .recent-dreams-section, .footer-container {
+
+  .header-container,
+  .recent-dreams-section,
+  .footer-container {
     max-width: 1200px;
     width: 100%;
   }
+
   .dreams-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
+    grid-template-columns: repeat(3, 1fr);  }
 }
 
-/* 📋 PLANŞET EKRANLAR (601px - 991px) */
 @media screen and (min-width: 601px) and (max-width: 991px) {
-  /* H1 Başlığının şriftini planşetə uyğun bir az kiçildirik */
   .intro h1 span {
-    font-size: 90px; /* 150px çox böyük idi, daşma edə bilərdi */
+    font-size: 90px;
   }
-  
+
   .intro {
     padding: 60px 20px;
   }
 
-  /* Texarea və AI nəticə qutusunu planşetdə bir az daha geniş edirik */
-  .textarea-container, .ai-result {
+  .textarea-container,
+  .ai-result {
     width: 95%;
   }
 
-  /* Kartların düzülüşü: Planşetdə yan-yana 2 kart yerləşəcək şəkildə avtomatik tənzimlənir */
   .dreams-grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
   }
 
-  /* About səhifəsindəki o nəhəng şəklin kənarlardan daşmaması üçün */
   .about-img img {
     width: 100%;
     max-width: 100%;
     padding: 0 20px;
   }
-  
+
   .about-content {
     padding: 0 30px;
   }
 }
 
-/* 📱 TELEFON EKRANLARI (max-width: 600px) */
 @media screen and (max-width: 600px) {
-  /* Header loqo və linkləri alt-alta nizamlayır */
   .header-container {
     flex-direction: column;
     gap: 15px;
@@ -766,13 +758,13 @@ footer {
     gap: 20px;
   }
 
-  .navbar a, .archive-link {
+  .navbar a,
+  .archive-link {
     font-size: 15px;
   }
 
-  /* Böyük başlığı mobildə 42px-ə salıb ekrana sığdırır */
   .intro h1 span {
-    font-size: 42px !important; 
+    font-size: 42px !important;
     line-height: 1.2;
     display: block;
   }
@@ -782,29 +774,35 @@ footer {
     margin-top: 15px;
   }
 
-  /* Kateqoriyaları dağılmaqdan qoruyub sağa-sola sürüşən lent edir */
-  .categories, .archive-categories {
+  .intro-detail {
+    font-size: 13px;         
+    padding: 8px 18px;      
+    letter-spacing: 1.5px;    
+    margin-bottom: 20px;   
+  }
+
+  .categories,
+  .archive-categories {
     display: flex;
-    justify-content: flex-start !important;
-    overflow-x: auto;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    overflow-x: visible !important;
     width: 100%;
-    padding: 10px 15px;
-    gap: 10px;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .categories::-webkit-scrollbar, .archive-categories::-webkit-scrollbar {
-    display: none; /* Sürüşdürmə çubuğunu gizlədir */
+    padding: 10px;
+    gap: 8px;
   }
 
-  .categories div, .arch-cat {
-    font-size: 14px;
-    padding: 6px 14px;
-    flex-shrink: 0; /* Düymələrin sıxılmasını önləyir */
+  .categories div,
+  .arch-cat {
+    font-size: 13px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    flex-shrink: 1;
   }
 
-  /* Giriş qutusu və AI sahəsi */
-  .textarea-container, .ai-result {
+
+  .textarea-container,
+  .ai-result {
     width: 92%;
     padding: 15px;
   }
@@ -814,14 +812,13 @@ footer {
     height: 150px;
   }
 
-  /* Yuxu kartlarını alt-alta tək sütun edir */
   .dreams-grid {
     grid-template-columns: 1fr !important;
     gap: 15px;
   }
 
   .dream-card {
-    height: auto !important; /* Yazı çoxdursa kart aşağı uzansın */
+    height: auto !important;
     min-height: 200px;
     padding: 20px;
   }

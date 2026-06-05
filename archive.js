@@ -4,7 +4,6 @@ let categoryButtons = document.querySelectorAll('.arch-cat');
 
 function renderArchiveDreams(selectedCategory = "All") {
   if (!archiveWrapper) return;
-  archiveWrapper.innerHTML = "";
 
   let filteredDreams = selectedCategory === "All"
     ? dreams
@@ -15,8 +14,9 @@ function renderArchiveDreams(selectedCategory = "All") {
     return;
   }
 
+  let newHTML = "";
   [...filteredDreams].reverse().forEach(dream => {
-    const cardHTML = `
+    newHTML += `
       <div class="dream-card" data-id="${dream.id}">
           <div class="card-top">
               <span class="dream-tag tag-${dream.category.toLowerCase()}">${dream.category}</span>
@@ -35,8 +35,9 @@ function renderArchiveDreams(selectedCategory = "All") {
           </div>
       </div>
     `;
-    archiveWrapper.innerHTML += cardHTML;
   });
+
+  archiveWrapper.innerHTML = newHTML;
 
   document.querySelectorAll('.options-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {

@@ -101,7 +101,6 @@ analyzeBtn.addEventListener('click', () => {
 
       currentAIAnalysis = analysis;
 
-      // Düyməni əvvəlki halına qaytarırıq
       analyzeBtn.innerText = "✦ Analyze Dream";
     })
     .catch(error => {
@@ -124,7 +123,6 @@ addBtn.addEventListener('click', () => {
   const activeCategoryBtn = document.querySelector('.categories div.active');
   const selectedCategory = activeCategoryBtn ? activeCategoryBtn.innerText : "Lucid";
 
-// Əgər mətn 25 simvoldan çoxdursa ilk 25 hərfi kəs və "..." əlavə et, azdırsa olduğu kimi saxla
 const dreamTitle = dreamText.length > 25 
   ? dreamText.substring(0, 25) + "..." 
   : dreamText;
@@ -169,7 +167,6 @@ function menuEvents() {
     });
   });
 
-  // DELETE
   document.querySelectorAll('.delete-opt').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -181,7 +178,6 @@ function menuEvents() {
     });
   });
 
-  // EDIT
   document.querySelectorAll('.edit-opt').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -194,13 +190,11 @@ function menuEvents() {
       currentAIAnalysis = dream.analysis;
       document.querySelector('.ai-result').innerText = dream.analysis;
 
-      // Kateqoriyanı seç
       categoryButtons.forEach(b => {
         b.classList.remove('active');
         if (b.innerText === dream.category) b.classList.add('active');
       });
 
-      // Köhnəni sil, yuxarı scroll et
       dreams = dreams.filter(d => d.id !== dreamId);
       localStorage.setItem('dreams', JSON.stringify(dreams));
       renderRecentDreams();
@@ -262,13 +256,6 @@ document.addEventListener('click', () => {
 renderRecentDreams();
 
 
-
-
-
-
-
-
-// Archive-dan edit
 const editId = localStorage.getItem('editDreamId');
 if (editId) {
   const dream = dreams.find(d => d.id === Number(editId));
