@@ -14,6 +14,10 @@ body {
   padding: 0;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 img {
   width: 50px;
 }
@@ -33,10 +37,14 @@ header {
 }
 
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Sənin əsas kontentinin (məsələn, About və ya əsas səhifənin) eni nə qədərdirsə, bura da onu yazırıq */
+    width: 100%;
+    margin: 0 auto; /* Bu kod headeri ekranın tam mərkəzində saxlayır */
+    padding: 20px; /* Ekran kiçiləndə kənarlara yapışmasın deyə zərif daxili boşluq */
+    box-sizing: border-box;
 }
 
 .logo-area {
@@ -112,7 +120,7 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 6px 16px;
   color: #a2a1a8;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -130,8 +138,8 @@ header {
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   width: 90%;
-  max-width: 650px;
-  min-height: 180px;
+  max-width: 800px;
+  min-height: 200px;
   padding: 20px;
   border-radius: 16px;
   position: relative;
@@ -147,7 +155,7 @@ header {
   height: 200px;
   outline: none;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   padding: 0;
 }
 
@@ -159,7 +167,7 @@ header {
   color: #a2a1a8;
   padding: 10px 24px;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -440,11 +448,11 @@ header {
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   width: 90%;
-  max-width: 600px;
+  max-width: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 18px;
   padding: 20px;
   border-radius: 16px;
   margin: 20px auto;
@@ -570,3 +578,289 @@ header {
   border-radius: 12px;
   padding: 16px;
 }
+
+
+
+
+/* ── Telefon: 375–767 ── */
+@media (max-width: 767px) {
+
+  .header-container {
+    margin: 5px 10px;
+  }
+
+  .logo-area {
+    margin-left: 10px;
+  }
+
+  .navbar {
+    margin-right: 10px;
+  }
+
+  .intro {
+    padding: 36px 16px;
+  }
+
+  .intro h1 span {
+    font-size: 64px;
+  }
+
+  .intro h2 {
+    font-size: 15px;
+  }
+
+  .categories {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .categories div {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+
+  .textarea-container {
+    margin-top: 20px;
+  }
+
+  .textarea-container textarea {
+    font-size: 14px;
+    height: 130px;
+  }
+
+  .analyze {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .ai-result {
+    font-size: 14px;
+    padding: 16px;
+  }
+
+  .recent-dreams-section {
+    margin: 32px auto;
+    padding: 0 14px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .section-header h2 {
+    font-size: 22px;
+  }
+
+  .dreams-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-box {
+    padding: 20px 16px;
+    max-height: 92vh;
+    border-radius: 16px;
+  }
+
+  .popup-title {
+    font-size: 20px;
+  }
+
+  .archive-categories {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 14px;
+  }
+}
+
+/* ── Planşet: 768–1199 ── */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .logo-area {
+    margin-left: 20px;
+  }
+
+  .navbar {
+    margin-right: 20px;
+  }
+
+  .intro {
+    padding: 60px 24px;
+  }
+
+  .intro h1 span {
+    font-size: 100px;
+  }
+
+  .intro h2 {
+    font-size: 18px;
+  }
+
+  .categories div {
+    font-size: 15px;
+  }
+
+  .textarea-container {
+    max-width: 90%;
+  }
+
+  .ai-result {
+    max-width: 90%;
+  }
+
+  .recent-dreams-section {
+    padding: 0 24px;
+  }
+
+  .dreams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .archive-categories {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* ── Komputer: 1200–2000 ── */
+@media (min-width: 1200px) {
+
+  .logo-area {
+    margin-left: 40px;
+  }
+
+  .navbar {
+    margin-right: 40px;
+  }
+
+  .intro h1 span {
+    font-size: 150px;
+  }
+
+  .dreams-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* --- About Us Səhifəsi Ümumi Ayarları --- */
+.about-page {
+    background-color: #0c0a09; /* Ağ fonu tamamilə silib sənin tünd fonunu qoyduq */
+    color: #94a3b8;
+    margin: 0;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* Bu kod daxilindəki hər şeyi ortalayır */
+    justify-content: center;
+    gap: 40px;
+    margin: 50px auto;        /* Təkrarlanan margin-top kodlarını silib vahid bu mərkəzləməni qoyuruq */
+    width: 100%;
+}
+
+/* Şəklin yerləşdiyi sahə (Tamamilə düzbucaqlı, heç bir dairəvi kəsik yoxdur) */
+.about-img {
+    display: flex;
+    justify-content: center;  /* Sabit 800px olan şəkli tam mərkəzə gətirir */
+    width: 100%;
+    height: auto;
+}
+
+.about-img img {
+    width: 1000px;
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+/* Mətnin yerləşdiyi sahə */
+.about-content {
+    max-width: 800px;         /* Mətni də şəkil kimi maksimum 800px enində saxlayır və ortalayır */
+    width: 100%;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.about-content strong {
+    color: #e9d5ff; /* Son cümləni zərif parlaq bənövşəyi edir */
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* --- Mobil Telefon Uyğunlaşması --- */
+@media (max-width: 600px) {
+    .about-section {
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .about-img {
+        width: 100%;
+        height: 240px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+
+
+.navbar {
+    display: flex;
+    gap: 25px; 
+    align-items: center;
+}
+
+.archive-link {
+    color: #94a3b8; 
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.archive-link:hover, 
+.archive-link.active {
+    color: #ffffff; 
+}
+
+
+/* --- Sadə və Zərif Footer Dizaynı --- */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Yuxarıdan çox incə bir ayırıcı xətt */
+    padding: 30px 0;
+    margin-top: 60px; /* Səhifənin kontenti ilə footer arasında nəfəs alacaq məsafə */
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px; /* Header ilə eyni xəttdə mərkəzlənməsi üçün */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Mətni tam ortalayır */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footer-container p {
+    color: #4b5563; /* Yumşaq, göz yormayan tünd-boz rəng */
+    font-size: 14px;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+
+
