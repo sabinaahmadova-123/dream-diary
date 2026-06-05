@@ -124,7 +124,10 @@ addBtn.addEventListener('click', () => {
   const activeCategoryBtn = document.querySelector('.categories div.active');
   const selectedCategory = activeCategoryBtn ? activeCategoryBtn.innerText : "Lucid";
 
-  const dreamTitle = dreamText.split(" ").slice(0, 4).join(" ") + "...";
+// Əgər mətn 25 simvoldan çoxdursa ilk 25 hərfi kəs və "..." əlavə et, azdırsa olduğu kimi saxla
+const dreamTitle = dreamText.length > 25 
+  ? dreamText.substring(0, 25) + "..." 
+  : dreamText;
 
   const today = new Date().toLocaleDateString('en-US', {
     month: 'short',
@@ -265,3 +268,24 @@ renderRecentDreams();
 
 
 
+// Archive-dan edit
+const editId = localStorage.getItem('editDreamId');
+if (editId) {
+  const dream = dreams.find(d => d.id === Number(editId));
+  if (dream) {
+    textarea.value = dream.text;
+    currentAIAnalysis = dream.analysis;
+    document.querySelector('.ai-result').innerText = dream.analysis;
+
+    categoryButtons.forEach(b => {
+      b.classList.remove('active');
+      if (b.innerText === dream.category) b.classList.add('active');
+    });
+
+    dreams = dreams.filter(d => d.id !== Number(editId));
+    localStorage.setItem('dreams', JSON.stringify(dreams));
+    renderRecentDreams();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  localStorage.removeItem('editDreamId');
+}
